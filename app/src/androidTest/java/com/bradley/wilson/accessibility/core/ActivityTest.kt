@@ -1,4 +1,4 @@
-package com.bradley.wilson.accessibility.notes.core
+package com.bradley.wilson.accessibility.core
 
 import android.app.Activity
 import androidx.test.espresso.accessibility.AccessibilityChecks

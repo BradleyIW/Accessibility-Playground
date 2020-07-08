@@ -40,11 +40,12 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        style="@style/TextAppearance.AppCompat.Large"
+        style="@style/TextAppearance.AppCompat.Body1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
         android:importantForAccessibility="no"
         android:text="@string/long_press_to_remove_note"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -59,6 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        android:background="@drawable/bordered_text_view"
         android:contentDescription="@string/default_notes_content_description"
         android:minHeight="@dimen/min_touchable_height"
         app:layout_constraintBottom_toBottomOf="parent"

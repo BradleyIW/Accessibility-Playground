@@ -1,7 +1,6 @@
 package com.bradley.wilson.accessibility.startup
 
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.intent.Intents
@@ -10,7 +9,7 @@ import androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent
 import androidx.test.espresso.matcher.ViewMatchers.*
 import com.bradley.wilson.accessibility.R
 import com.bradley.wilson.accessibility.notes.NotesActivity
-import com.bradley.wilson.accessibility.notes.core.ActivityTest
+import com.bradley.wilson.accessibility.core.ActivityTest
 import org.junit.After
 import org.junit.Before
 import org.junit.Test

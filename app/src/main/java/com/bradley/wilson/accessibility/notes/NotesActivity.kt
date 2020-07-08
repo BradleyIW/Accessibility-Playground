@@ -1,21 +1,27 @@
-package com.bradley.wilson.accessibility
+package com.bradley.wilson.accessibility.notes
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.accessibility.AccessibilityManager
 import android.view.inputmethod.EditorInfo
+import android.widget.TextView
 import android.widget.TextView.OnEditorActionListener
 import androidx.appcompat.app.AppCompatActivity
-import com.bradley.wilson.accessibility.extension.headingForAccessibility
-import com.bradley.wilson.accessibility.extension.hideKeyboard
-import com.bradley.wilson.accessibility.extension.showKeyboard
-import kotlinx.android.synthetic.main.activity_main.*
+import com.bradley.wilson.accessibility.R
+import com.bradley.wilson.accessibility.core.accessibility.Accessibility
+import com.bradley.wilson.accessibility.core.extension.headingForAccessibility
+import com.bradley.wilson.accessibility.core.extension.hideKeyboard
+import com.bradley.wilson.accessibility.core.extension.showKeyboard
+import kotlinx.android.synthetic.main.activity_notes.*
 
-class MainActivity : AppCompatActivity(R.layout.activity_main) {
+class NotesActivity : AppCompatActivity(R.layout.activity_notes) {
 
     private val accessibility by lazy {
-        Accessibility(getSystemService(Context.ACCESSIBILITY_SERVICE) as AccessibilityManager)
+        Accessibility(
+            getSystemService(Context.ACCESSIBILITY_SERVICE) as AccessibilityManager
+        )
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,6 +42,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                 note_input_edit_text.text?.let {
                     if (it.isNotEmpty()) {
                         final_note_text_view.text = "$it"
+                        final_note_text_view.contentDescription = "$it"
                     }
                 }
                 note_input_edit_text.setText("")
@@ -59,23 +66,19 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     }
 
     private fun initNoteDisplayTextView() {
-        note_input_edit_text.setOnEditorActionListener(OnEditorActionListener { v, actionId, event ->
-            if (actionId == EditorInfo.IME_ACTION_SEND) {
-                note_input_edit_text.text?.let {
-                    if (it.isNotEmpty()) {
-                        final_note_text_view.text = it.toString()
-                    }
-                }
-                note_input_edit_text.setText("")
-                hideKeyboard()
-                note_input_edit_text.clearFocus()
-                return@OnEditorActionListener true
+        final_note_text_view.setOnLongClickListener { p0 ->
+            p0?.let {
+                (it as TextView).text = ""
             }
-            false
-        })
+            true
+        }
     }
 
     private fun initTitleTextView() {
         note_screen_title.headingForAccessibility()
+    }
+
+    companion object {
+        fun newIntent(context: Context) = Intent(context, NotesActivity::class.java)
     }
 }

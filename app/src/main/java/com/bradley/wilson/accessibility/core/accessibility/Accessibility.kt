@@ -1,4 +1,4 @@
-package com.bradley.wilson.accessibility
+package com.bradley.wilson.accessibility.core.accessibility
 
 import android.accessibilityservice.AccessibilityServiceInfo
 import android.view.accessibility.AccessibilityManager

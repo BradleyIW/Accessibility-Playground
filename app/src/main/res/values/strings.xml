@@ -11,4 +11,8 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="enter_a_temporary_note_below">Enter a temporary note below</string>
     <string name="create_a_new_temporary_note">Create a new temporary note</string>
+    <string name="welcome_to_the_accessibility_playground">Welcome to the Accessibility Playground.</string>
+    <string name="go_to_accessibility_settings">Go to Accessibility settings</string>
+    <string name="long_press_to_remove_note">Long press to remove note.</string>
+    <string name="default_notes_content_description">Notes text. Notes will be set here.</string>
 </resources>

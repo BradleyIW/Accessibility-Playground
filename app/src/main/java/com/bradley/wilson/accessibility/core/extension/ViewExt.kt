@@ -1,4 +1,4 @@
-package com.bradley.wilson.accessibility.extension
+package com.bradley.wilson.accessibility.core.extension
 
 import android.os.Build
 import android.view.View

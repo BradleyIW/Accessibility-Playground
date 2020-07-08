@@ -1,4 +1,4 @@
-package com.bradley.wilson.accessibility.extension
+package com.bradley.wilson.accessibility.core.extension
 
 import android.app.Activity
 import android.view.inputmethod.InputMethodManager
@@ -8,7 +8,6 @@ fun Activity.showKeyboard() =
         InputMethodManager.SHOW_FORCED,
         InputMethodManager.HIDE_IMPLICIT_ONLY
     )
-
 
 fun Activity.hideKeyboard() =
     (this.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager).hideSoftInputFromWindow(

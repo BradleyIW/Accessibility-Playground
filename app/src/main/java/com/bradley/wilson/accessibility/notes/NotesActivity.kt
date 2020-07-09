@@ -55,8 +55,6 @@ class NotesActivity : AppCompatActivity(R.layout.activity_notes) {
         if (!accessibility.isTalkbackEnabled()) {
             view.requestFocus()
             showKeyboard()
-        } else {
-            clearFocusAndHideKeyboard(view)
         }
     }
 

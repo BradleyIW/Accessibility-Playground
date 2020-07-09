@@ -18,12 +18,12 @@ import kotlinx.android.synthetic.main.activity_notes.*
 
 class NotesActivity : AppCompatActivity(R.layout.activity_notes) {
 
-    private lateinit var accessibility: Accessibility
+    private val accessibility by lazy {
+        Accessibility(getSystemService(Context.ACCESSIBILITY_SERVICE) as AccessibilityManager)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        accessibility =
-            Accessibility(getSystemService(Context.ACCESSIBILITY_SERVICE) as AccessibilityManager)
         initTitleTextView()
         initNoteInput()
         initNoteDisplayTextView()

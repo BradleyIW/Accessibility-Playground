@@ -18,22 +18,20 @@ import kotlinx.android.synthetic.main.activity_notes.*
 
 class NotesActivity : AppCompatActivity(R.layout.activity_notes) {
 
-    private val accessibility by lazy {
-        Accessibility(
-            getSystemService(Context.ACCESSIBILITY_SERVICE) as AccessibilityManager
-        )
-    }
+    private lateinit var accessibility: Accessibility
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        accessibility =
+            Accessibility(getSystemService(Context.ACCESSIBILITY_SERVICE) as AccessibilityManager)
         initTitleTextView()
         initNoteInput()
         initNoteDisplayTextView()
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onStart() {
         requestFocusAndShowKeyboard(note_input_edit_text)
+        super.onStart()
     }
 
     private fun initNoteInput() {
@@ -57,6 +55,8 @@ class NotesActivity : AppCompatActivity(R.layout.activity_notes) {
         if (!accessibility.isTalkbackEnabled()) {
             view.requestFocus()
             showKeyboard()
+        } else {
+            clearFocusAndHideKeyboard(view)
         }
     }
 

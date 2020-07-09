@@ -54,7 +54,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/final_note_text_view"
+        android:id="@id/final_note_text_view"
         style="@style/TextAppearance.AppCompat.Large"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -62,6 +62,7 @@
         android:layout_marginEnd="16dp"
         android:background="@drawable/bordered_text_view"
         android:contentDescription="@string/default_notes_content_description"
+        android:labelFor="@+id/final_note_label_text_view"
         android:minHeight="@dimen/min_touchable_height"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

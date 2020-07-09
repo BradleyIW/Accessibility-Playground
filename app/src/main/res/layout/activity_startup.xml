@@ -8,10 +8,11 @@
         android:id="@+id/startup_title_text_view"
         style="@style/TextAppearance.AppCompat.Headline"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:gravity="center_horizontal"
-        android:text="@string/welcome_to_the_accessibility_playground" />
+        android:text="@string/welcome_to_the_accessibility_playground"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id='@+id/startup_temporary_note_button'

@@ -15,8 +15,38 @@ fun View.headingForAccessibility() =
                 host: View,
                 info: AccessibilityNodeInfoCompat
             ) {
-                super.onInitializeAccessibilityNodeInfo(host, info)
                 info.isHeading = true
+                super.onInitializeAccessibilityNodeInfo(host, info)
+            }
+        })
+    }
+
+fun View.screenReaderFocusable() =
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+        isScreenReaderFocusable = true
+    } else {
+        ViewCompat.setAccessibilityDelegate(this, object : AccessibilityDelegateCompat() {
+            override fun onInitializeAccessibilityNodeInfo(
+                host: View,
+                info: AccessibilityNodeInfoCompat
+            ) {
+                info.isScreenReaderFocusable = true
+                super.onInitializeAccessibilityNodeInfo(host, info)
+            }
+        })
+    }
+
+fun View.paneTitleForAccessibility(title: String) =
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+        accessibilityPaneTitle = title
+    } else {
+        ViewCompat.setAccessibilityDelegate(this, object : AccessibilityDelegateCompat() {
+            override fun onInitializeAccessibilityNodeInfo(
+                host: View,
+                info: AccessibilityNodeInfoCompat
+            ) {
+                info.paneTitle = title
+                super.onInitializeAccessibilityNodeInfo(host, info)
             }
         })
     }

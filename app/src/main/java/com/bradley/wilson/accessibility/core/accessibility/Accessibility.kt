@@ -5,7 +5,7 @@ import android.view.accessibility.AccessibilityManager
 
 class Accessibility(private val am: AccessibilityManager) {
 
-    fun isTalkbackEnabled() = am.isEnabled &&
+    fun isTalkbackEnabled() = am.isEnabled && am.isTouchExplorationEnabled &&
             am.getEnabledAccessibilityServiceList(AccessibilityServiceInfo.FEEDBACK_SPOKEN)
                 .isNotEmpty()
 

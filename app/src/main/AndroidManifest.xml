@@ -13,8 +13,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name="com.bradley.wilson.accessibility.startup.StartupActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysVisible|adjustResize">
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

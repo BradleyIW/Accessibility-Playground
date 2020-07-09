@@ -23,7 +23,7 @@
         <activity
             android:name=".notes.NotesActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysVisible|adjustResize" />
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>

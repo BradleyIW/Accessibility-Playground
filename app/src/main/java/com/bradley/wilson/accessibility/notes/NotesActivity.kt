@@ -30,28 +30,30 @@ class NotesActivity : AppCompatActivity(R.layout.activity_notes) {
     }
 
     override fun onStart() {
-        requestFocusAndShowKeyboard(note_input_edit_text)
         super.onStart()
+        shouldFocusInput(note_input_edit_text)
     }
 
     private fun initNoteInput() {
-        note_input_edit_text.setOnEditorActionListener(OnEditorActionListener { v, actionId, event ->
+        note_input_edit_text.setOnEditorActionListener(OnEditorActionListener { v, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEND) {
-                note_input_edit_text.text?.let {
-                    if (it.isNotEmpty()) {
-                        final_note_text_view.text = "$it"
-                        final_note_text_view.contentDescription = "$it"
+                with(note_input_edit_text) {
+                    text?.let {
+                        if (it.isNotEmpty()) {
+                            final_note_text_view.text = "$it"
+                            final_note_text_view.contentDescription = "$it"
+                        }
                     }
+                    setText("")
                 }
-                note_input_edit_text.setText("")
                 clearFocusAndHideKeyboard(v)
                 return@OnEditorActionListener true
             }
-            false
+            return@OnEditorActionListener false
         })
     }
 
-    private fun requestFocusAndShowKeyboard(view: View) {
+    private fun shouldFocusInput(view: View) {
         if (!accessibility.isTalkbackEnabled()) {
             view.requestFocus()
             showKeyboard()
@@ -68,7 +70,7 @@ class NotesActivity : AppCompatActivity(R.layout.activity_notes) {
             p0?.let {
                 (it as TextView).text = ""
             }
-            true
+            return@setOnLongClickListener true
         }
     }
 
